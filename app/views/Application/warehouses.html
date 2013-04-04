@@ -1,0 +1,79 @@
+#{extends 'main.html' /}
+#{set title:'Casberry Depo Yönetimi' /}
+
+<div class="row panel">
+ <div class="small-12 small-centered columns">Mevcut Depolar</div>
+ <div class="small-12 small-centered columns">
+ 
+ <table>
+  <thead>
+    <tr>
+      <th width="200">Oluşturulma</th>
+      <th width="200">Depo Adı</th>
+      <th width="150">Depo Tanımı</th>
+      <th width="150">Depo Tipi</th>
+      <th width="150">Eylem</th>
+    </tr>
+  </thead>
+  <tbody>
+  #{list items:warehouses, as:'warehouse'}
+    <tr>
+      <td>${warehouse.createdAt}</td>
+      <td>${warehouse.name}</td>
+      <td>${warehouse.description}</td>
+      <td>${warehouse.type}</td>
+      <td>
+      #{form @Warehouses.delete(), method:'DELETE', id:'detailsForm'}
+      <input type="hidden" value=${warehouse.id}/>
+      <button type="submit" class="small button alert">Sil</a>
+      ${/form}
+      </td>
+    </tr>
+  #{/list}
+  </tbody>
+</table>
+<a href="#" class="button" data-reveal-id="newWarehouseModal">Yeni Depo Oluştur</a>
+ </div>
+</div>
+
+<div id="newWarehouseModal" class="reveal-modal">
+
+#{form @Warehouses.addWarehouse(), method:'POST', id:'detailsForm'}
+  <fieldset>
+    <legend>Yeni Depo Oluştur</legend>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Depo Adı</label>
+        <input type="text" placeholder="ör. Eryaman" name="name">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-8 columns">
+        <label>Depo Tanımı</label>
+        <input type="text" placeholder="ör.Ankara Eryaman Mağaza"  name="description">
+      </div>
+        <div class="large-4 columns">
+        <label for="typeSelect">Depo Tipi</label>
+        <select id="typeSelect" class="medium"  name="type">
+        <option>DEPO</option>
+        <option>MAĞAZA</option>
+      </select>
+      </div>
+    </div>
+    <div class="row">
+    <div class="large-12 columns">
+    <button type="" class="button">Kaydet</button>
+    <a href="#" class="button secondary">Vazgeç</a>
+    </div>
+    </div>
+
+    <div class="row">
+
+    </div>
+
+  </fieldset>
+#{/form}
+
+</div>

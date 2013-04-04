@@ -1,0 +1,44 @@
+#{extends 'main.html' /}
+#{set title:'Casberry Depo Y��netimi' /}
+
+
+ <div class="span12"><h3>Ürün Listesi #{if searchquery}- #{a @Products.index()}(Tümünü Göster)#{/a}#{/if}</h3>
+#{form @Products.index(), method:'GET', id:'detailsForm', class:'form-search'}
+  <input name="searchquery" type="text" class="input-xlarge " data-provide="typeahead" data-items="10" data-source='[#{list items:allProducts, as:'product'}"${product.name}",#{/list}""]'>
+ <button type="submit" class="btn">Ara</button>
+ #{/form}
+  </div>
+
+ <div class="span10 offset 2">
+ 
+ <table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Ürün Kodu</th>
+      <th>Ürün Adı</th>
+      <th>Fiyat</th>
+    </tr>
+  </thead>
+  <tbody>
+  #{list items:allProducts, as:'product'}
+    <tr>
+     	<td>${product_index}</td>
+      	<td>${product.code}</td>
+      	<td>${product.name}</td>
+      	<td>${product.price}</td>
+<!--       <td> -->
+<!--       #{form @Products.delete(), method:'DELETE', id:'detailsForm'} -->
+<!--       <input type="hidden" value=${product.id} name="id"/> -->
+<!--       <button type="submit" class="small button alert">Sil</a> -->
+<!--       #{/form} -->
+<!--       </td> -->
+    </tr>
+  #{/list}
+  </tbody>
+</table>
+ </div>
+
+<script>
+$('.typeahead').typeahead()
+</script>
