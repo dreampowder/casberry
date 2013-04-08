@@ -19,14 +19,6 @@ public class Application extends Controller {
         render();
     }
 
-    public static void products(){
-    	render();
-    }
-    
-    public static void inventories(){
-    	render();
-    }
-    
     public static void rebuildProducts() throws IOException{
 
     }
