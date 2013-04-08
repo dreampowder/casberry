@@ -15,16 +15,20 @@ public class Inventory extends Model{
 	Date createdAt;
 	
 	@ManyToOne
+	Dispatch dispatch;
+	
+	@ManyToOne
 	Product product;
 	
 	@ManyToOne
 	Warehouse wareHouse;
 
-	public Inventory(Product product, Warehouse wareHouse) {
+	public Inventory(Product product, Warehouse wareHouse,Dispatch dispatch) {
 		super();
 		this.createdAt = Calendar.getInstance().getTime();
 		this.product = product;
 		this.wareHouse = wareHouse;
+		this.dispatch = dispatch;
 	}
 	
 	

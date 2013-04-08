@@ -1,0 +1,38 @@
+#{extends 'main.html'/}
+
+
+<div class="container" ng-controller="AddInventoryCtrl">
+
+<div class="input-append">
+<button class="btn" ng-click="addProduct()">İrsaliyeye Ekle</button>
+<input class="span5" type="text" ng-model="typeAhead" typeahead="product.code + ' '+product.name for product in products | filter:$viewValue" ng-click="typeAhead=''">
+</div>
+
+<form class="well" action>
+<legend>İrsaliye Girişi</legend>
+<label>İrsaliye No</label>
+<input type="text" ng-model="dispatchCode">
+<label>Depo</label>
+ <select ng-model="warehouseProp" ng-options="warehouse.id as warehouse.name for warehouse in warehouses |orderBy:'id'" ng-selected="checkOption(warehouse)">
+ </select>
+ 
+ <table class="table table-bordered table-striped" ng-init="dispatchProducts=[]">
+ 	<thead>
+ 		<th>S.No</th>
+ 		<th>Kod</th>
+ 		<th>Açıklama</th>
+ 		<th>Sil</th>
+ 	</thead>
+ 	<tbody>
+ 		<tr ng-repeat="product in dispatchProducts">
+ 			<td>{{$index+1}}</td>
+ 			<td>{{product.code}}</td>
+ 			<td>{{product.name}}</td>
+ 			<td><a href="#" class="btn btn-danger btn-mini" ng-click="removeFromDispatch($index)"><i class="icon-white icon-remove"></i> Sil</a></td>
+ 		</tr>
+ 	</tbody>
+ </table>
+ <button class="btn btn-primary" ng-click="saveDispatch(dispatchProducts,warehouseProp,dispatchCode)">Kaydet</button>
+</form>
+
+</div>

@@ -28,4 +28,9 @@ public class Warehouses extends Controller{
 		wh.delete();
 		index();
 	}
+	
+	public static void getWarehouses(){
+		List<Warehouse> warehouses = Warehouse.findAll();
+		renderJSON(warehouses);
+	}
 }
