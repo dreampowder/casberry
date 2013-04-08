@@ -22,9 +22,9 @@
       <td>${warehouse.description}</td>
       <td>${warehouse.type}</td>
       <td>
-      #{form @Warehouses.delete(), method:'DELETE', id:'detailsForm'}
+      #{form @Warehouses.delete(), method:'POST'}
       <input type="hidden" value=${warehouse.id} name="id"/>
-      <button type="submit" class="btn btn-warning">Sil</a>
+      <button type="submit" class="btn">Sil</a>
       #{/form}
       </td>
     </tr>

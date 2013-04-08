@@ -24,6 +24,7 @@ public class Warehouses extends Controller{
 	}
 	
 	public static void delete(Long id){
+		Logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>id=%s", id.toString());
 		Warehouse wh = Warehouse.findById(id);
 		wh.delete();
 		index();

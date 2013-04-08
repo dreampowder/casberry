@@ -9,7 +9,7 @@ GET     /                                       	Application.index
 
 GET	 	/warehouse                                 	Warehouses.index
 POST 	/warehouse									Warehouses.addWareHouse
-DELETE 	/warehouse/{id}								Warehouses.delete
+
 *		/warehouse/{action}							Warehouses.{action}
 
 #Product Routeları
