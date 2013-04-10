@@ -3,9 +3,15 @@ package models;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import play.db.jpa.Model;
 
@@ -14,13 +20,16 @@ public class Inventory extends Model{
 	
 	Date createdAt;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
+	@OnDelete(action=OnDeleteAction.CASCADE)
 	Dispatch dispatch;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
+	@OnDelete(action=OnDeleteAction.CASCADE)
 	Product product;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
+	@OnDelete(action=OnDeleteAction.NO_ACTION)
 	Warehouse wareHouse;
 
 	public Inventory(Product product, Warehouse wareHouse,Dispatch dispatch) {
@@ -31,6 +40,4 @@ public class Inventory extends Model{
 		this.dispatch = dispatch;
 	}
 	
-	
-
 }

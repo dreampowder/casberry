@@ -34,6 +34,7 @@ public class Inventories extends Controller{
 		Dispatch dispatch = new Dispatch(dvm.getCode()).save();
 		Warehouse wareHouse = Warehouse.findById(Long.parseLong(dvm.getWarehouse()));
 		for(Product p:dvm.getProducts()){
+			p=Product.findById(p.getId());
 			new Inventory(p, wareHouse, dispatch).save();
 		}
 		renderText("İrsaliye başarı ile kaydedildi!");

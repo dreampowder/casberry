@@ -2,9 +2,16 @@ package models;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.PreRemove;
 
+import org.hibernate.annotations.OnDelete;
+
+import play.Logger;
 import play.db.jpa.Model;
 
 @Entity
@@ -50,5 +57,11 @@ public class Warehouse extends Model{
 	}
 	public void setType(WarehouseType type) {
 		this.type = type;
+	}
+	
+	@PreRemove
+	public void deleteAction(){
+		Logger.info("Depoya Kayıtlı ürünler siliniyor..");
+		Inventory.delete("wareHouse=?", this);
 	}
 }
