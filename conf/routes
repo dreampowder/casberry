@@ -3,32 +3,13 @@
 # ~~~~
 
 # Home page
-GET     /                                       	Application.index
-
-#Warehouse Routeları
-
-GET	 	/warehouse                                 	Warehouses.index
-POST 	/warehouse									Warehouses.addWareHouse
-
-*		/warehouse/{action}							Warehouses.{action}
-
-#Product Routeları
-
-GET 	/product										Products.index
-* 		/product/{action}								Products.{action}
-
-#Inventory Routeları
-
-GET		/inventory										Inventories.index
-POST	/inventory										Inventories.saveDispatch
-* 		/inventory/{action}								Inventories.{action}
-
+GET     /                                       Application.index
 
 # Ignore favicon requests
-GET     /favicon.ico                            	404
+GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/                                	staticDir:public
+GET     /public/                                staticDir:public
 
 # Catch all
-*       /{controller}/{action}                  	{controller}.{action}
+*       /{controller}/{action}                  {controller}.{action}

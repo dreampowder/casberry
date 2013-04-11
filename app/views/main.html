@@ -1,66 +1,16 @@
 <!DOCTYPE html>
 
-<html ng-app="casberryApp">
+<html>
     <head>
         <title>#{get 'title' /}</title>
         <meta charset="${_response_encoding}">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        <link href="//netdna.bootstrapcdn.com/bootswatch/2.3.1/simplex/bootstrap.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        #{script 'jquery-1.9.1.min.js'/}
-        #{script 'bootstrap.min.js'/}
-        #{script 'angular.min.js'/}
-        #{script 'angularstrap.js'/}
-        #{script 'ngcontrollers.js'/}
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
     </head>
     <body>
-<div class="navbar navbar-inverse">
-    <div class="navbar-inner">
-      <div class="container" style="width: auto;">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="#">Casberry</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li class="active"><a href="#">Ana Sayfa</a></li>
-            <li><a href="/orders">Siparişler</a></li>
-            <li><a href="/inventory">Envanter</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tanımlar <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/warehouse">Depo Tanımları</a></li>
-                <li><a href="/product">Ürün Tanılmarı</a></li>
-              </ul>
-            </li>
-          </ul>
-          
-<!--           <form class="navbar-search pull-left" action=""> -->
-<!--             <input type="text" class="search-query span2" placeholder="Search"> -->
-<!--           </form> -->
-          <ul class="nav pull-right">
-            <li><img class="img-rounded" src="http://www.gravatar.com/avatar/c5edf37c770d7d77c5dbf59cdfb6d6e3?s=40"></li>
-<!--             <li class="divider-vertical"></li> -->
-<!--             <li class="dropdown"> -->
-<!--               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a> -->
-<!--               <ul class="dropdown-menu"> -->
-<!--                 <li><a href="#">Action</a></li> -->
-<!--                 <li><a href="#">Another action</a></li> -->
-<!--                 <li><a href="#">Something else here</a></li> -->
-<!--                 <li class="divider"></li> -->
-<!--                 <li><a href="#">Separated link</a></li> -->
-<!--               </ul> -->
-<!--             </li> -->
-          </ul>
-        </div><!-- /.nav-collapse -->
-      </div>
-    </div><!-- /navbar-inner -->
-  </div>
         #{doLayout /}
     </body>
 </html>
